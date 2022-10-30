@@ -12,15 +12,46 @@ registerServiceWorker();
 const feeling = (state = 0, action) => {
     switch (action.type) {
         case 'SET_FEELING':
+            console.log(action.payload)
             return action.payload;
         default:
-            return state
+            return state;
     }
 }
+
+const understanding = (state = 0, action) => {
+    switch (action.type) {
+        case 'SET_UNDERSTANDING':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
+const support = (state = 0, action) => {
+    switch (action.type) {
+        case 'SET_SUPPORT':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
+const comment = (state = '', action) => {
+    switch (action.type) {
+        case 'SET_COMMENT':
+            return {};
+        default:
+            return state
+    };
+};
 
 const storeInstance = createStore(
     combineReducers({
         feeling,
+        understanding,
+        support,
+        comment
     })
 );
 
