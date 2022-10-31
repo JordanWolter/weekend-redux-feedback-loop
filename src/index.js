@@ -37,10 +37,10 @@ const support = (state = 0, action) => {
     }
 }
 
-const comment = (state = '', action) => {
+const comments = (state = '', action) => {
     switch (action.type) {
         case 'SET_COMMENT':
-            return {};
+            return action.payload;
         default:
             return state
     };
@@ -51,7 +51,7 @@ const storeInstance = createStore(
         feeling,
         understanding,
         support,
-        comment
+        comments
     })
 );
 

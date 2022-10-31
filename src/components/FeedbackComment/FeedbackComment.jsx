@@ -5,27 +5,37 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 function FeedbackComment({submitFeedback}) {
-    const databaseFeedback = useSelector( store => store );
+
     const dispatch = useDispatch();
     const history = useHistory();
-    console.log('database', databaseFeedback)
+    const [comment, setComment] = useState('');
+
+
+
+    const changeComment = (event) => {
+
+        setComment(event.target.value)
+
+    }
+
     
     const handleSubmit = () => {
-        
-        submitFeedback(databaseFeedback);
-    
+
+        console.log('COMMENT', comment)
+
             dispatch({
                 type: 'SET_COMMENT',
-            })
+                payload: comment
+            });
     
-            history.push('/');
+            history.push('/submit');
     
     }
 
     return(
         <>
-        <input type= 'text' placeholder="Leave Comment"/>
-        <button onClick={handleSubmit}>Submit Feedback</button>
+        <input type= 'text' placeholder="Leave Comment" onChange={changeComment}/>
+        <button onClick={handleSubmit}>Next</button>
         </>
     )
 }

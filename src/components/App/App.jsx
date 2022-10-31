@@ -7,6 +7,7 @@ import Feeling from '../Feeling/Feeling';
 import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support';
 import FeedbackComment from '../FeedbackComment/FeedbackComment';
+import SubmitFeedback from '../SubmitFeedback/SubmitFeedback';
 
 function App() {
 
@@ -50,6 +51,10 @@ function App() {
 
           <Route exact path='/comment'>
             <FeedbackComment submitFeedback={submitFeedback} />
+          </Route>
+
+          <Route exact path='/submit'>
+            <SubmitFeedback submitFeedback={submitFeedback}/>
           </Route>
 
         </Router>
